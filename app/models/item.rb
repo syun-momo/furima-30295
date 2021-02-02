@@ -1,6 +1,6 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
-  #has_one_attached :images
+  has_one_attached :images
   
   with_options presence: true do
     validates :images
@@ -29,4 +29,5 @@ class Item < ApplicationRecord
   belongs_to_active_hash :shopping_fee_status
   belongs_to_active_hash :prefecture
   belongs_to_active_hash :scheduled_delivery
+  belongs_to :user
 end
