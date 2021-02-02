@@ -16,7 +16,7 @@
 - has_many :users_products
 - has_many :products
 
-## products テーブル
+## items テーブル
 
 | Column                 | Type       | Options           |
 | ---------------------- | ---------- | ----------------- |
@@ -32,7 +32,7 @@
 
 ### Association
 
-- has_one :users_product
+- has_one :users_items
 - belongs_to :user
 
 ## buying_addresses テーブル
