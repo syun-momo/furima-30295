@@ -56,7 +56,7 @@ RSpec.describe Item, type: :model do
     it '価格の範囲が、￥300~￥9,999,999の間であること' do
       @item.price = 100
       @item.valid?
-      expect(@item.errors.full_messages).to include("Price is out of setting range")
+      expect(@item.errors.full_messages).to include('Price is out of setting range')
     end
   end
 end
