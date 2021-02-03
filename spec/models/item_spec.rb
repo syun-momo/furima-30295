@@ -3,11 +3,7 @@ require 'rails_helper'
 RSpec.describe Item, type: :model do
   describe '#create' do
     before do
-      # user = FactoryBot.create(:user)
       @item = FactoryBot.build(:item)
-      # @item = FactoryBot.build(:item)
-      # @user = FactoryBot.build(:user)
-      # @item.image = fixture_file_upload('spec/images/test.jpg')
     end
 
     context '商品登録がうまくいく時' do
