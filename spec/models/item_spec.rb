@@ -33,8 +33,18 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Category can't be blank")
       end
+      it 'カテゴリーの情報が必至であること' do
+        @item.category_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Category can't be blank")
+      end
       it '商品の状態についての情報が必須であること' do
         @item.status = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Status can't be blank")
+      end
+      it '商品の状態についての情報が必須であること' do
+        @item.status_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Status can't be blank")
       end
@@ -43,13 +53,28 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Shopping fee status can't be blank")
       end
+      it '配送料の負担についての情報が必須であること' do
+        @item.shopping_fee_status_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Shopping fee status can't be blank")
+      end
       it '配送元の地域についての情報が必須であること' do
         @item.prefectures_id = nil
         @item.valid?
         expect(@item.errors.full_messages).to include("Prefectures can't be blank")
       end
+      it '配送元の地域についての情報が必須であること' do
+        @item.prefectures_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Prefectures can't be blank")
+      end
       it '発送までの日数についての情報が必須であること' do
         @item.scheduled_delivery = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Scheduled delivery can't be blank")
+      end
+      it '発送までの日数についての情報が必須であること' do
+        @item.scheduled_delivery_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Scheduled delivery can't be blank")
       end
@@ -59,6 +84,16 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Price can't be blank")
       end
       it '価格の範囲が、￥300~￥9,999,999の間であること' do
+        @item.price = 100
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Price is out of setting range')
+      end
+      it '価格の範囲が、￥300~￥9,999,999の間であること' do
+        @item.price = 10000000
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Price is out of setting range')
+      end
+      it '商品価格が全角の場合に出品できない' do
         @item.price = 100
         @item.valid?
         expect(@item.errors.full_messages).to include('Price is out of setting range')
