@@ -13,10 +13,10 @@
 
 ### Association
 
-- has_many :users_products
-- has_many :products
+- has_many :users_items
+- has_many :items
 
-## products テーブル
+## items テーブル
 
 | Column                 | Type       | Options           |
 | ---------------------- | ---------- | ----------------- |
@@ -32,7 +32,7 @@
 
 ### Association
 
-- has_one :users_product
+- has_one :users_item
 - belongs_to :user
 
 ## buying_addresses テーブル
@@ -45,13 +45,13 @@
 | addresses     | string     | null: false       |
 | building      | string     |                   |
 | phone_number  | string     | null: false       |
-| users_product | references | foreign_key: true |
+| users_items   | references | foreign_key: true |
 
 ### Association
 
-- belongs_to :users_product
+- belongs_to :users_items
 
-## users_products テーブル
+## users_items テーブル
 
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
@@ -61,5 +61,5 @@
 ### Association
 
 - belongs_to :user
-- belongs_to :product
+- belongs_to :items
 has_one :buying_address
