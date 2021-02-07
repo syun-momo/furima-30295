@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :item do
-    name { "sample" }
-    info { "sample" }
+    name { 'sample' }
+    info { 'sample' }
     price { 1000 }
     category_id { 2 }
     status_id { 2 }
