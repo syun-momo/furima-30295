@@ -59,14 +59,14 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Shopping fee status can't be blank")
       end
       it '配送元の地域についての情報が必須であること' do
-        @item.prefectures_id = nil
+        @item.prefecture_id = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Prefectures can't be blank")
+        expect(@item.errors.full_messages).to include("Prefecture can't be blank")
       end
       it '配送元の地域についての情報が必須であること' do
-        @item.prefectures_id = 1
+        @item.prefecture_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Prefectures can't be blank")
+        expect(@item.errors.full_messages).to include("Prefecture can't be blank")
       end
       it '発送までの日数についての情報が必須であること' do
         @item.scheduled_delivery = nil
