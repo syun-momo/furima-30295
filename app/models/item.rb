@@ -28,4 +28,5 @@ class Item < ApplicationRecord
   belongs_to_active_hash :prefecture
   belongs_to_active_hash :scheduled_delivery
   belongs_to :user
+  has_one :order
 end
