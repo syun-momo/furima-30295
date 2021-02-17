@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_item, only: [:index]
+  before_action :set_item, only: [:index, :create]
 
   def index
     @user_order = UserOrder.new
@@ -17,11 +17,12 @@ class OrdersController < ApplicationController
   end
 
   private
+  def set_item
+    @item = Item.find(params[:item_id])
+  end
+  
   def order_params
     params.require(:user_order).permit(:postal_code, :prefecture_id, :city, :address, :building, :phone_number, :item_id)
   end
 
-  def set_item
-    @item = Item.find(params[:item_id])
-  end
 end
