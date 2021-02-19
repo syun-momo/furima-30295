@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
+  before_action :move_index
   before_action :set_item, only: [:index, :create]
 
   def index
@@ -9,6 +10,7 @@ class OrdersController < ApplicationController
   def create
     @user_order = UserOrder.new(order_params)
     if @user_order.valid?
+      pay_item
       @user_order.save
       redirect_to root_path
     else
@@ -22,7 +24,11 @@ class OrdersController < ApplicationController
   end
   
   def order_params
-    params.require(:user_order).permit(:postal_code, :prefecture_id, :city, :address, :building, :phone_number, :item_id).merge(token: params[:token])
+    params.require(:user_order).permit(:postal_code, :prefecture_id, :city, :address, :building, :phone_number, :item_id, :user_id).merge(token: params[:token])
+  end
+
+  def move_index
+    redirect_to new_user_session_path unless user_signed_in?
   end
 
   def pay_item
