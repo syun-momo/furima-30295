@@ -6,7 +6,6 @@ RSpec.describe UserOrder, type: :model do
   end
 
   describe '商品購入' do
-
     it '全ての値が揃っている時住所登録できる' do
       expect(@user_order).to be_valid
     end
@@ -78,5 +77,4 @@ RSpec.describe UserOrder, type: :model do
       expect(@user_order.errors.full_messages).to include("Item can't be blank")
     end
   end
-
 end
