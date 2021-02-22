@@ -7,7 +7,7 @@ FactoryBot.define do
     building { 'エスポワール' }
     phone_number { '08011112222' }
     token { 'tokentokentoken' }
-    user_id { 1 }
-    item_id { 2 }
+    association    :item
+    association    :user
   end
 end
