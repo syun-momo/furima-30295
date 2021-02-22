@@ -5,7 +5,7 @@ FactoryBot.define do
     city { '札幌市' }
     address { '西区' }
     building { 'エスポワール' }
-    phone_number { 11_111_112_222 }
+    phone_number { '08011112222' }
     token { 'tokentokentoken' }
     user_id { 1 }
     item_id { 2 }

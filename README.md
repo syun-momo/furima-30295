@@ -35,11 +35,7 @@
 - has_one :order
 - belongs_to :user
 
-<<<<<<< Updated upstream
 ## addresses テーブル
-=======
-## Orders テーブル
->>>>>>> Stashed changes
 
 | Column        | Type       | Options           |
 | ------------- | ---------- | ----------------- |
